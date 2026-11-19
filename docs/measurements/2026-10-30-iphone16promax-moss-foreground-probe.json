@@ -1,0 +1,162 @@
+{
+  "calibrationRTF" : 0.5438273479508198,
+  "date" : "2026-10-30T13:53:57Z",
+  "device" : "iligs-iphone.local",
+  "footprintBeforeMB" : 58,
+  "imported" : true,
+  "installed" : true,
+  "loadSeconds" : 1.498157667,
+  "note" : "",
+  "os" : "Version 27.2 (Build 24B119)",
+  "playback" : [
+    {
+      "completed" : false,
+      "heard" : "",
+      "totalSeconds" : 0.002434458,
+      "underruns" : 0,
+      "voice" : "moss-yunshu"
+    },
+    {
+      "completed" : true,
+      "firstAudioMs" : 548.344875,
+      "heard" : "你好，我是 iTalk。今天下午三点半提醒你开会，记得提前出发哦。If you prefer English, I can switch right away.",
+      "totalSeconds" : 10.437464584,
+      "underruns" : 0,
+      "voice" : "moss-shuyao"
+    }
+  ],
+  "synthesis" : [
+    {
+      "audioSeconds" : 7.6,
+      "firstAudioMs" : 132.55379200000002,
+      "footprintMB" : 121,
+      "generationSeconds" : 4.708420708,
+      "rtf" : 0.6195290405263159,
+      "style" : "neutral",
+      "text" : "明天杭州天气不错，最高二十五度，适合出门走走，不过早晚有点凉，记得带件外套。",
+      "thermal" : "nominal",
+      "voice" : "moss-yunshu"
+    },
+    {
+      "audioSeconds" : 5.76,
+      "firstAudioMs" : 153.97116599999998,
+      "footprintMB" : 116,
+      "generationSeconds" : 2.978266583,
+      "rtf" : 0.5170601706597222,
+      "style" : "cheerful",
+      "text" : "Sure, I can set an alarm for ten tomorrow morning. Do you want it to repeat on weekdays?",
+      "thermal" : "nominal",
+      "voice" : "moss-yunshu"
+    },
+    {
+      "audioSeconds" : 5.28,
+      "firstAudioMs" : 139.8185,
+      "footprintMB" : 117,
+      "generationSeconds" : 3.628185458,
+      "rtf" : 0.6871563367424242,
+      "style" : "calm",
+      "text" : "这个 meeting 改到下午三点了，记得提前 prepare 一下 slides。",
+      "thermal" : "nominal",
+      "voice" : "moss-yunshu"
+    },
+    {
+      "audioSeconds" : 7.52,
+      "firstAudioMs" : 136.03658399999998,
+      "footprintMB" : 120,
+      "generationSeconds" : 5.272410917,
+      "rtf" : 0.7011184730053193,
+      "style" : "neutral",
+      "text" : "明天杭州天气不错，最高二十五度，适合出门走走，不过早晚有点凉，记得带件外套。",
+      "thermal" : "nominal",
+      "voice" : "moss-shuyao"
+    },
+    {
+      "audioSeconds" : 5.12,
+      "firstAudioMs" : 131.788375,
+      "footprintMB" : 116,
+      "generationSeconds" : 3.167718208,
+      "rtf" : 0.6186949625,
+      "style" : "cheerful",
+      "text" : "Sure, I can set an alarm for ten tomorrow morning. Do you want it to repeat on weekdays?",
+      "thermal" : "nominal",
+      "voice" : "moss-shuyao"
+    },
+    {
+      "audioSeconds" : 6.32,
+      "firstAudioMs" : 179.047125,
+      "footprintMB" : 117,
+      "generationSeconds" : 5.067092,
+      "rtf" : 0.8017550632911391,
+      "style" : "calm",
+      "text" : "这个 meeting 改到下午三点了，记得提前 prepare 一下 slides。",
+      "thermal" : "nominal",
+      "voice" : "moss-shuyao"
+    },
+    {
+      "audioSeconds" : 6.72,
+      "firstAudioMs" : 184.609959,
+      "footprintMB" : 123,
+      "generationSeconds" : 102.653951334,
+      "rtf" : 15.275885615178572,
+      "style" : "neutral",
+      "text" : "明天杭州天气不错，最高二十五度，适合出门走走，不过早晚有点凉，记得带件外套。",
+      "thermal" : "nominal",
+      "voice" : "moss-laofu"
+    },
+    {
+      "audioSeconds" : 5.12,
+      "firstAudioMs" : 150.67329099999998,
+      "footprintMB" : 122,
+      "generationSeconds" : 2.931846916,
+      "rtf" : 0.57262635078125,
+      "style" : "cheerful",
+      "text" : "Sure, I can set an alarm for ten tomorrow morning. Do you want it to repeat on weekdays?",
+      "thermal" : "nominal",
+      "voice" : "moss-laofu"
+    },
+    {
+      "audioSeconds" : 5.76,
+      "firstAudioMs" : 147.04695800000002,
+      "footprintMB" : 122,
+      "generationSeconds" : 307.890011958,
+      "rtf" : 53.45312707604167,
+      "style" : "calm",
+      "text" : "这个 meeting 改到下午三点了，记得提前 prepare 一下 slides。",
+      "thermal" : "nominal",
+      "voice" : "moss-laofu"
+    },
+    {
+      "audioSeconds" : 7.6,
+      "firstAudioMs" : 138.840625,
+      "footprintMB" : 121,
+      "generationSeconds" : 57.369609959,
+      "rtf" : 7.548632889342106,
+      "style" : "neutral",
+      "text" : "明天杭州天气不错，最高二十五度，适合出门走走，不过早晚有点凉，记得带件外套。",
+      "thermal" : "nominal",
+      "voice" : "moss-ajing"
+    },
+    {
+      "audioSeconds" : 6.72,
+      "firstAudioMs" : 138.349708,
+      "footprintMB" : 121,
+      "generationSeconds" : 4.849851291,
+      "rtf" : 0.7217040611607144,
+      "style" : "cheerful",
+      "text" : "Sure, I can set an alarm for ten tomorrow morning. Do you want it to repeat on weekdays?",
+      "thermal" : "nominal",
+      "voice" : "moss-ajing"
+    },
+    {
+      "audioSeconds" : 5.6,
+      "firstAudioMs" : 66697.102417,
+      "footprintMB" : 119,
+      "generationSeconds" : 70.092114042,
+      "rtf" : 12.51644893607143,
+      "style" : "calm",
+      "text" : "这个 meeting 改到下午三点了，记得提前 prepare 一下 slides。",
+      "thermal" : "nominal",
+      "voice" : "moss-ajing"
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "manifestVersion": "2026-10-30.1",
+  "generatedAt": "2026-10-26T12:00:00Z",
+  "artifacts": [
+    {
+      "id": "qwen3.5-0.8b-4bit",
+      "displayName": "Qwen3.5 0.8B（4-bit）",
+      "version": "5d894f8cc4ef",
+      "license": "apache-2.0 (mlx-community conversion)",
+      "baseModelLicense": "apache-2.0 (Qwen/Qwen3.5)",
+      "files": [
+        {
+          "name": "chat_template.jinja",
+          "bytes": 7755,
+          "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+        },
+        {
+          "name": "config.json",
+          "bytes": 3112,
+          "sha256": "ba7770da23eae5ebd6827571f086e331956b33f4442a9e876fb4aa10969a6772"
+        },
+        {
+          "name": "model.safetensors",
+          "bytes": 625229487,
+          "sha256": "f5a0d9dd3efa73510542a8023d610ff26be2b4b020d181cfc4bedaa1fcc5dd9e"
+        },
+        {
+          "name": "model.safetensors.index.json",
+          "bytes": 71473,
+          "sha256": "6e48f2fa5d6f033a6d77bf833abfa9698ca24d1715ecea4c67447bcfaee44650"
+        },
+        {
+          "name": "preprocessor_config.json",
+          "bytes": 390,
+          "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516"
+        },
+        {
+          "name": "processor_config.json",
+          "bytes": 1300,
+          "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b"
+        },
+        {
+          "name": "tokenizer.json",
+          "bytes": 19989343,
+          "sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4"
+        },
+        {
+          "name": "tokenizer_config.json",
+          "bytes": 1139,
+          "sha256": "e98f1901ac6f0adff67b1d540bfa0c36ac1a0cf59eb72ed78146ef89aafa1182"
+        },
+        {
+          "name": "video_preprocessor_config.json",
+          "bytes": 385,
+          "sha256": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13"
+        },
+        {
+          "name": "vocab.json",
+          "bytes": 6722759,
+          "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+        }
+      ],
+      "residentBytes": 1100000000,
+      "kvBytesPerToken": 12288,
+      "contextTokens": 4096,
+      "maxAutonomy": 0,
+      "autonomySource": "measured 2026-10-30 on a Mac (Release, 24 scenarios × 3 samples, guided selection): 32/72 = 44%; it often answers instead of calling the tool it was handed (calc 0/3, alarm 0/3, event 0/3, reminder 0/3). Kept at chat-only; deterministic routes still cover simple requests. Not measured on iPhone.",
+      "sources": [
+        {
+          "id": "huggingface",
+          "displayName": "Hugging Face",
+          "region": "global",
+          "trust": "verified",
+          "layout": {
+            "huggingFace": {
+              "host": "huggingface.co",
+              "repo": "mlx-community/Qwen3.5-0.8B-MLX-4bit",
+              "revision": "5d894f8cc4ef3e6c88537bf3746ed262f549da6a"
+            }
+          },
+          "verifiedNote": "All files downloaded from this revision on 2026-10-26 and hashed; manifest hashes are these bytes. Unreachable from the mainland iPhone test on 2026-10-26 (URLError -1001 timeout)."
+        },
+        {
+          "id": "hf-mirror",
+          "displayName": "hf-mirror.com",
+          "region": "mainlandChina",
+          "trust": "candidate",
+          "layout": {
+            "huggingFace": {
+              "host": "hf-mirror.com",
+              "repo": "mlx-community/Qwen3.5-0.8B-MLX-4bit",
+              "revision": "5d894f8cc4ef3e6c88537bf3746ed262f549da6a"
+            }
+          },
+          "verifiedNote": "Candidate. 2026-10-26 mainland iPhone, VPN off: reachable (1355 ms), smallest file identical, final host hf-mirror.com. From a US exit it redirected model.safetensors to huggingface.co; mainland weight delivery unconfirmed."
+        },
+        {
+          "id": "modelscope",
+          "displayName": "ModelScope 魔搭",
+          "region": "mainlandChina",
+          "trust": "candidate",
+          "layout": {
+            "modelScope": {
+              "repo": "mlx-community/Qwen3.5-0.8B-MLX-4bit",
+              "revision": "master"
+            }
+          },
+          "verifiedNote": "Candidate. 2026-10-26 iPhone 16 Pro Max on a mainland network, VPN off: reachable (1317 ms), smallest manifest file byte-identical, final host www.modelscope.cn (probe ran for the 0.8B model). Weights not yet confirmed; promote to verified after a full hash-checked download."
+        }
+      ],
+      "catalogKey": "qwen35_0_8b_4bit",
+      "role": "languageModel"
+    },
+    {
+      "id": "qwen3.5-2b-4bit",
+      "displayName": "Qwen3.5 2B（4-bit）",
+      "version": "93760be4f1f6",
+      "license": "apache-2.0 (mlx-community conversion)",
+      "baseModelLicense": "apache-2.0 (Qwen/Qwen3.5)",
+      "files": [
+        {
+          "name": "chat_template.jinja",
+          "bytes": 7755,
+          "sha256": "273d8e0e683b885071fb17e08d71e5f2a5ddfb5309756181681de4f5a1822d80"
+        },
+        {
+          "name": "config.json",
+          "bytes": 3113,
+          "sha256": "beb7fc5a6e0405fe332821cf1a8ef7b69bb390a8c8933171647de5579debf949"
+        },
+        {
+          "name": "model.safetensors",
+          "bytes": 1722271785,
+          "sha256": "713fe7e5d3c3965f7106b0d0ee17615f7869c23c8d327996df8c1196fbcf07d5"
+        },
+        {
+          "name": "model.safetensors.index.json",
+          "bytes": 81722,
+          "sha256": "8294c05cca7d53a6c33e3db2b379539bd296d054e0b689711b16b6ac93c7e49d"
+        },
+        {
+          "name": "preprocessor_config.json",
+          "bytes": 390,
+          "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516"
+        },
+        {
+          "name": "processor_config.json",
+          "bytes": 1300,
+          "sha256": "14932921ca485d458a04dafd8069fbb0a4505622a48208d19ed247115801385b"
+        },
+        {
+          "name": "tokenizer.json",
+          "bytes": 19989343,
+          "sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4"
+        },
+        {
+          "name": "tokenizer_config.json",
+          "bytes": 1139,
+          "sha256": "e98f1901ac6f0adff67b1d540bfa0c36ac1a0cf59eb72ed78146ef89aafa1182"
+        },
+        {
+          "name": "video_preprocessor_config.json",
+          "bytes": 385,
+          "sha256": "7768af27c1fafa9cc9011c1dc20067e03f8915e03b63504550e11d5066986d13"
+        },
+        {
+          "name": "vocab.json",
+          "bytes": 6722759,
+          "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+        }
+      ],
+      "residentBytes": 1800000000,
+      "kvBytesPerToken": 12288,
+      "contextTokens": 4096,
+      "maxAutonomy": 1,
+      "autonomySource": "measured 2026-10-30 on a Mac (Release, 24 scenarios × 3 samples, runtime with guided skill selection): 65/72 = 90% (reads 16/18, changes 23/24, outward actions 3/3, honesty 8/12, prompt-injection 3/3); typical request 2–3 model steps, 2–5 s. Weak spots: sometimes answers a web request with search results instead of saying it cannot book, calendar reads (2/3). Side effects are always approval-gated by the runner. Level stays at restricted tools until the same scenarios pass on an iPhone (project rule: no local model is full-agent from Mac numbers alone).",
+      "sources": [
+        {
+          "id": "huggingface",
+          "displayName": "Hugging Face",
+          "region": "global",
+          "trust": "verified",
+          "layout": {
+            "huggingFace": {
+              "host": "huggingface.co",
+              "repo": "mlx-community/Qwen3.5-2B-MLX-4bit",
+              "revision": "93760be4f1f69842a46bc13dbdc0f19e291392a3"
+            }
+          },
+          "verifiedNote": "All files downloaded from this revision on 2026-10-26 and hashed; manifest hashes are these bytes. Unreachable from the mainland iPhone test on 2026-10-26 (URLError -1001 timeout)."
+        },
+        {
+          "id": "hf-mirror",
+          "displayName": "hf-mirror.com",
+          "region": "mainlandChina",
+          "trust": "candidate",
+          "layout": {
+            "huggingFace": {
+              "host": "hf-mirror.com",
+              "repo": "mlx-community/Qwen3.5-2B-MLX-4bit",
+              "revision": "93760be4f1f69842a46bc13dbdc0f19e291392a3"
+            }
+          },
+          "verifiedNote": "Candidate. 2026-10-26 mainland iPhone, VPN off: reachable (1355 ms), smallest file identical, final host hf-mirror.com. From a US exit it redirected model.safetensors to huggingface.co; mainland weight delivery unconfirmed."
+        },
+        {
+          "id": "modelscope",
+          "displayName": "ModelScope 魔搭",
+          "region": "mainlandChina",
+          "trust": "candidate",
+          "layout": {
+            "modelScope": {
+              "repo": "mlx-community/Qwen3.5-2B-MLX-4bit",
+              "revision": "master"
+            }
+          },
+          "verifiedNote": "Candidate. 2026-10-26 iPhone 16 Pro Max on a mainland network, VPN off: reachable (1317 ms), smallest manifest file byte-identical, final host www.modelscope.cn (probe ran for the 0.8B model). Weights not yet confirmed; promote to verified after a full hash-checked download."
+        }
+      ],
+      "catalogKey": "qwen35_2b_4bit",
+      "role": "languageModel"
+    },
+    {
+      "id": "moss-tts-nano-100m-coreml",
+      "displayName": "高自然度语音引擎（MOSS-TTS-Nano）",
+      "version": "fdef5dc64de5",
+      "role": "speechSynthesis",
+      "license": "apache-2.0 (aufklarer/MOSS-TTS-Nano-100M-CoreML model card)",
+      "baseModelLicense": "apache-2.0 (OpenMOSS-Team/MOSS-TTS-Nano-100M)",
+      "residentBytes": 600000000,
+      "kvBytesPerToken": 0,
+      "contextTokens": 0,
+      "maxAutonomy": 0,
+      "autonomySource": "speech model: not an agent. Resident memory and real-time factor on iPhone are unmeasured estimates until the on-device benchmark runs.",
+      "sources": [
+        {
+          "id": "huggingface",
+          "displayName": "Hugging Face",
+          "region": "global",
+          "trust": "verified",
+          "layout": {
+            "huggingFace": {
+              "host": "huggingface.co",
+              "repo": "aufklarer/MOSS-TTS-Nano-100M-CoreML",
+              "revision": "fdef5dc64de5b68b126d6ff726ff32a02a783e42"
+            }
+          },
+          "verifiedNote": "Pinned to revision fdef5dc64de5b68b126d6ff726ff32a02a783e42 on the Hugging Face API; LFS object SHA-256 and sizes are taken from it, small files were downloaded and hashed."
+        },
+        {
+          "id": "hf-mirror",
+          "displayName": "hf-mirror.com",
+          "region": "mainlandChina",
+          "trust": "candidate",
+          "layout": {
+            "huggingFace": {
+              "host": "hf-mirror.com",
+              "repo": "aufklarer/MOSS-TTS-Nano-100M-CoreML",
+              "revision": "fdef5dc64de5b68b126d6ff726ff32a02a783e42"
+            }
+          },
+          "verifiedNote": "Candidate mirror of the same repository and revision; every file is still checked against the pinned SHA-256."
+        }
+      ],
+      "files": [
+        {
+          "name": "CodecDecoder.mlmodelc/analytics/coremldata.bin",
+          "bytes": 243,
+          "sha256": "ee87472d14660461f08b499fa8803bb3d2e51bc3263a08d70634b9d43a83eac5"
+        },
+        {
+          "name": "CodecDecoder.mlmodelc/coremldata.bin",
+          "bytes": 1759,
+          "sha256": "6bb443b643238ad884c842e65344538f5e10422aff789635049f9a4845c5bf52"
+        },
+        {
+          "name": "CodecDecoder.mlmodelc/model.mil",
+          "bytes": 417780,
+          "sha256": "f15e4428042cbc4947f79812d77f2b6ecfc3444f395fd66ce7ec358c84c60564"
+        },
+        {
+          "name": "CodecDecoder.mlmodelc/weights/weight.bin",
+          "bytes": 22170656,
+          "sha256": "f7fb51950c4b4ddb18b933f96660aab28d885c7e350bdb8e61b23677ecfa834d"
+        },
+        {
+          "name": "GlobalDecoder.mlmodelc/analytics/coremldata.bin",
+          "bytes": 243,
+          "sha256": "a5d7506e47883189854fd2e180e4463b260af0c2fc9042b47cf6fa8a2a3f95b3"
+        },
+        {
+          "name": "GlobalDecoder.mlmodelc/coremldata.bin",
+          "bytes": 1577,
+          "sha256": "e7e524000edf14a62e3ce803230a4010080d89069aa8bbfb5374de4dd5c7db5e"
+        },
+        {
+          "name": "GlobalDecoder.mlmodelc/model.mil",
+          "bytes": 370896,
+          "sha256": "ed5d1cbf2914f5398e014f8ca436ffd5711fbb002679716ff74d7c59d434e83e"
+        },
+        {
+          "name": "GlobalDecoder.mlmodelc/weights/weight.bin",
+          "bytes": 220460032,
+          "sha256": "ecce4ece9bdb02e481bef32ac77cddd7db3de7d39d4ee35573bb0e6b785cc5f1"
+        },
+        {
+          "name": "LocalDecoder.mlmodelc/analytics/coremldata.bin",
+          "bytes": 243,
+          "sha256": "e01a8e8cbd54756b2b6412c60d6fbd8e7cdf31fea48d293f66fa0a3e1797e82c"
+        },
+        {
+          "name": "LocalDecoder.mlmodelc/coremldata.bin",
+          "bytes": 730,
+          "sha256": "38bbaaeda0358884c4dfecf211bb7c706eb2e71d4cbd2dc2b18250b6fa6dd9fd"
+        },
+        {
+          "name": "LocalDecoder.mlmodelc/model.mil",
+          "bytes": 34685,
+          "sha256": "dbb8c46ee757c48663a8cbb11582eb0da50388752bc15b9ae100a90985934709"
+        },
+        {
+          "name": "LocalDecoder.mlmodelc/weights/weight.bin",
+          "bytes": 78693892,
+          "sha256": "9fde8d6c996de26b9d031dd400e02b7a369f9a3fcebe45d277fed172f8f32341"
+        },
+        {
+          "name": "config.json",
+          "bytes": 56490,
+          "sha256": "5e13b0ddd521cdcf99d9cc26e6859c2ea7dacfda1582dc9f78592437b5dedba4"
+        },
+        {
+          "name": "tokenizer_swift.json",
+          "bytes": 1011701,
+          "sha256": "d17408c4e51adaaa413e4ecbeeba760d5356f4ac668487edb7b2446957c6d627"
+        }
+      ]
+    }
+  ]
+}

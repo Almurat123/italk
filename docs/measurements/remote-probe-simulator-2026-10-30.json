@@ -1,0 +1,56 @@
+{
+  "steps": [
+    {
+      "ms": 92,
+      "ok": true,
+      "detail": "paired(deviceId: \"tq6fhgppq47absc3\")",
+      "name": "pair"
+    },
+    {
+      "ms": 94,
+      "ok": true,
+      "detail": "已连接; models: DeepSeek · deepseek-flash, DeepSeek · deepseek-v4-pro",
+      "name": "status"
+    },
+    {
+      "ms": 2883,
+      "ok": true,
+      "detail": "state=Optional(AgentRuntime.RemoteTaskState.completed) firstEventMs=1449 steps=1 approvalsAnswered=0 answer=我运行在你的 Mac 上：主机名 Almurats-MacBook-Pro.local（MacBook Pro，型号标识 Mac15,7，macOS 27.0.1），当前用户 almurat，工作目录 /Users/almurat 里主要是各类开发工具的隐藏配置文件夹（.claude、.codex、.cursor、.c",
+      "name": "read-task"
+    },
+    {
+      "ms": 1681,
+      "ok": true,
+      "detail": "Write /Users/almurat/italk-agent-test/italk-probe.txt",
+      "name": "approval-visible"
+    },
+    {
+      "ms": 2975,
+      "ok": true,
+      "detail": "asked=true phase=Optional(RemoteAgent.RemoteTranscript.Phase.completed) answer=已创建文件 `italk-probe.txt`（位于 /Users/almurat/italk-agent-test），内容为 `hello from iPhone`。",
+      "name": "edit-task"
+    },
+    {
+      "ms": 7286,
+      "ok": true,
+      "detail": "eventsBeforeAway=3 whileAway=3 finalLive=6 finalReplay=6 identical=true chars=52",
+      "name": "resume"
+    },
+    {
+      "ms": 5,
+      "name": "left-running",
+      "ok": true,
+      "detail": "task e3db7b12-7906-4aef-bf60-a5460c92b874 submitted; terminate the app now"
+    },
+    {
+      "ms": 28,
+      "name": "survived-app-kill",
+      "ok": true,
+      "detail": "state=Optional(AgentRuntime.RemoteTaskState.completed) chars=977 events=78"
+    }
+  ],
+  "date": 815077833.703652,
+  "device": "iPhone 17",
+  "note": "Simulator evidence only. The physical iPhone still needs one unlocked launch and one tap on the Local Network prompt.",
+  "environment": "iOS Simulator (iPhone 17, arm64, Debug build), real Mac agent installed as a LaunchAgent, real DeepSeek API through the Mac agent; the physical iPhone was locked and unreachable for devicectl at the time"
+}

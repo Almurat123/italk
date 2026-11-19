@@ -1,0 +1,20 @@
+{
+  "name": "italk-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "iTalk companion for a Mac: pairs with the iPhone by QR code, then runs models and agents on this computer on the phone's behalf.",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "bin": {
+    "italk-agent": "./bin/italk-agent.mjs"
+  },
+  "scripts": {
+    "test": "node --test --test-concurrency=1 test/*.test.mjs",
+    "start": "node bin/italk-agent.mjs run"
+  },
+  "dependencies": {
+    "qrcode-terminal": "0.12.0"
+  }
+}

@@ -1,0 +1,26 @@
+.DS_Store
+.build/
+build/
+DerivedData/
+node_modules/
+.env
+.env.*
+!.env.example
+*.sqlite*
+*.xcuserstate
+xcuserdata/
+artifacts/
+secrets/
+
+# QA recordings, test result bundles and model caches stay local (2026-10-30)
+*.mp4
+*.mov
+*.m4v
+*.xcresult/
+*.safetensors
+*.gguf
+*.mlpackage/
+*.mlmodelc/
+
+
+config/cloud-endpoint.txt

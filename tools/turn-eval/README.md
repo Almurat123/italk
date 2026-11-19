@@ -1,0 +1,3 @@
+# End-of-turn evaluation (Smart Turn vs the text endpointer)
+`eval.py` (needs `pip install numpy onnxruntime transformers` and `smart-turn-v3.2-cpu.onnx` from Hugging Face `pipecat-ai/smart-turn-v3`) synthesizes finished and cut-off sentences with macOS `say`, runs the audio model on them (zeros go in FRONT of the 8 s window) and prints accuracy/AUC. `assess_main.swift` + `Packages/AssistantCore/.../TurnTaking.swift` give the text endpointer's verdict for the same sentences (`swiftc -O TurnTaking.swift assess_main.swift -o assess`).
+Result and caveats: `docs/measurements/2026-10-30-smart-turn-eval.json`. Synthetic speech is a weak proxy: replace it with real recordings before deciding anything.

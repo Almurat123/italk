@@ -1,0 +1,10 @@
+{
+  "durationSeconds" : 10.011302333325148,
+  "intervalsAbove25MS" : 1,
+  "p50IntervalMS" : 16.659708227962255,
+  "p95IntervalMS" : 17.087999964132905,
+  "renderer" : "layers-v10",
+  "scope" : "renderer callback cadence; not displayed-frame or concurrent inference measurement",
+  "updateFPS" : 54.738133137368514,
+  "updates" : 548
+}

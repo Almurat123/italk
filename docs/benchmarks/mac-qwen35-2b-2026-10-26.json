@@ -1,0 +1,35 @@
+{
+ "cancelStaleDeltas": 0,
+ "toolProbe": [
+  "call:calculate {\"expression\":\"12*(3+4)\"}"
+ ],
+ "loadSeconds": 4.8551735,
+ "diagnostics": [],
+ "peakMemoryMB": 1760.56572,
+ "thinkingLeakedIntoText": false,
+ "coldFirstTokenSeconds": 3.293649167,
+ "calcFinalCorrect": 3,
+ "model": "Qwen3.5-2B-MLX-4bit",
+ "warmTokensPerSecond": [
+  29.46272919228126,
+  60.46662440394963,
+  26.234440197372994
+ ],
+ "chatCompletionTokens": 6,
+ "activeMemoryMB": 1101.119267,
+ "reminderTrials": 5,
+ "calcTrials": 5,
+ "reminderApprovalCardShown": 4,
+ "machine": "almurats-macbook-pro.local",
+ "calcProposedValid": 0,
+ "chatText": "我是一个简洁的中文助手。",
+ "reminderSideEffects": 0,
+ "cancelStopMillis": 6.9076249999999995,
+ "warmFirstTokenSeconds": [
+  0.062848125,
+  0.059857125,
+  0.097205834
+ ],
+ "environment": "Mac (Apple silicon), Release build, MLX via mlx-swift-lm 3.32.3, NOT an iPhone",
+ "date": "2026-10-26"
+}

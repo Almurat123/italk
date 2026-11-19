@@ -1,0 +1,10 @@
+{
+  "durationSeconds" : 10.009973666863516,
+  "intervalsAbove25MS" : 252,
+  "p50IntervalMS" : 33.778541721403599,
+  "p95IntervalMS" : 51.696749869734049,
+  "renderer" : "canvas-v9",
+  "scope" : "renderer callback cadence; not displayed-frame or concurrent inference measurement",
+  "updateFPS" : 26.673396842577379,
+  "updates" : 267
+}

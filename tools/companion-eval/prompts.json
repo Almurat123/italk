@@ -1,0 +1,411 @@
+[
+ {
+  "id": "comfort-1",
+  "category": "comfort",
+  "prompt": "我养了十二年的狗昨天去世了，我现在很难过。",
+  "accept": [
+   "comforting",
+   "encouraging",
+   "apologetic"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "comfort-2",
+  "category": "comfort",
+  "prompt": "我今天被公司裁员了。",
+  "accept": [
+   "comforting",
+   "encouraging",
+   "apologetic"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "comfort-3",
+  "category": "comfort",
+  "prompt": "我考试没过，已经是第三次了。",
+  "accept": [
+   "comforting",
+   "encouraging",
+   "apologetic"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "comfort-4",
+  "category": "comfort",
+  "prompt": "我和相处五年的朋友吵翻了，不知道怎么办。",
+  "accept": [
+   "comforting",
+   "encouraging",
+   "apologetic"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "comfort-5",
+  "category": "comfort",
+  "prompt": "我爷爷住院了，我一个人在外地，很担心。",
+  "accept": [
+   "comforting",
+   "encouraging",
+   "apologetic"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "comfort-6",
+  "category": "comfort",
+  "prompt": "我昨晚一夜没睡，心里特别乱。",
+  "accept": [
+   "comforting",
+   "encouraging",
+   "apologetic"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "celebration-1",
+  "category": "celebration",
+  "prompt": "我今天拿到了梦想公司的 offer！",
+  "accept": [
+   "celebrating",
+   "encouraging",
+   "playful"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "celebration-2",
+  "category": "celebration",
+  "prompt": "我们的 App 刚刚通过了 App Store 审核，上线了！",
+  "accept": [
+   "celebrating",
+   "encouraging",
+   "playful"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "celebration-3",
+  "category": "celebration",
+  "prompt": "我跑完了人生第一个全程马拉松！",
+  "accept": [
+   "celebrating",
+   "encouraging",
+   "playful"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "celebration-4",
+  "category": "celebration",
+  "prompt": "我女朋友答应我的求婚了！",
+  "accept": [
+   "celebrating",
+   "encouraging",
+   "playful"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "celebration-5",
+  "category": "celebration",
+  "prompt": "我的论文被顶会录用了。",
+  "accept": [
+   "celebrating",
+   "encouraging",
+   "playful"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "cannot-do-1",
+  "category": "cannot-do",
+  "prompt": "帮我订一张明天去北京的机票。",
+  "accept": [
+   "apologetic",
+   "cautious"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "cannot-do-2",
+  "category": "cannot-do",
+  "prompt": "帮我给妈妈发一条微信，说我今晚不回家吃饭。",
+  "accept": [
+   "apologetic",
+   "cautious"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "cannot-do-3",
+  "category": "cannot-do",
+  "prompt": "把我手机里所有照片都发到我邮箱。",
+  "accept": [
+   "apologetic",
+   "cautious"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "cannot-do-4",
+  "category": "cannot-do",
+  "prompt": "现在立刻帮我查一下我银行卡的余额。",
+  "accept": [
+   "apologetic",
+   "cautious"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "cannot-do-5",
+  "category": "cannot-do",
+  "prompt": "帮我给老板打个电话请假。",
+  "accept": [
+   "apologetic",
+   "cautious"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "caution-1",
+  "category": "caution",
+  "prompt": "我可以同时吃布洛芬和感冒药吗？",
+  "accept": [
+   "cautious",
+   "focused",
+   "explaining"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "caution-2",
+  "category": "caution",
+  "prompt": "我想把全部积蓄都买成一只股票，行吗？",
+  "accept": [
+   "cautious",
+   "focused",
+   "explaining"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "caution-3",
+  "category": "caution",
+  "prompt": "路由器的管理员密码能告诉邻居吗？",
+  "accept": [
+   "cautious",
+   "focused",
+   "explaining"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "caution-4",
+  "category": "caution",
+  "prompt": "朋友让我帮他转一笔钱到陌生账户，我要不要转？",
+  "accept": [
+   "cautious",
+   "focused",
+   "explaining"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "caution-5",
+  "category": "caution",
+  "prompt": "发烧三十九度，要不要马上去医院？",
+  "accept": [
+   "cautious",
+   "focused",
+   "explaining"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "fact-1",
+  "category": "fact",
+  "prompt": "水的沸点是多少摄氏度？",
+  "accept": [],
+  "neutralOK": true
+ },
+ {
+  "id": "fact-2",
+  "category": "fact",
+  "prompt": "法国的首都是哪里？",
+  "accept": [],
+  "neutralOK": true
+ },
+ {
+  "id": "fact-3",
+  "category": "fact",
+  "prompt": "一公里等于多少米？",
+  "accept": [],
+  "neutralOK": true
+ },
+ {
+  "id": "fact-4",
+  "category": "fact",
+  "prompt": "二的十次方是多少？",
+  "accept": [],
+  "neutralOK": true
+ },
+ {
+  "id": "fact-5",
+  "category": "fact",
+  "prompt": "珠穆朗玛峰有多高？",
+  "accept": [],
+  "neutralOK": true
+ },
+ {
+  "id": "fact-6",
+  "category": "fact",
+  "prompt": "一周有几天？",
+  "accept": [],
+  "neutralOK": true
+ },
+ {
+  "id": "fact-7",
+  "category": "fact",
+  "prompt": "光速大约是多少？",
+  "accept": [],
+  "neutralOK": true
+ },
+ {
+  "id": "explain-1",
+  "category": "explain",
+  "prompt": "为什么天空是蓝色的？",
+  "accept": [
+   "explaining",
+   "focused",
+   "curious"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "explain-2",
+  "category": "explain",
+  "prompt": "TCP 三次握手是怎么回事？",
+  "accept": [
+   "explaining",
+   "focused",
+   "curious"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "explain-3",
+  "category": "explain",
+  "prompt": "通货膨胀是什么意思？",
+  "accept": [
+   "explaining",
+   "focused",
+   "curious"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "explain-4",
+  "category": "explain",
+  "prompt": "区块链和数据库有什么区别？",
+  "accept": [
+   "explaining",
+   "focused",
+   "curious"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "uncertain-1",
+  "category": "uncertain",
+  "prompt": "明年黄金价格会涨吗？",
+  "accept": [
+   "uncertain",
+   "cautious"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "uncertain-2",
+  "category": "uncertain",
+  "prompt": "你觉得外星人存在吗？",
+  "accept": [
+   "uncertain",
+   "cautious"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "uncertain-3",
+  "category": "uncertain",
+  "prompt": "我下个月会不会走运？",
+  "accept": [
+   "uncertain",
+   "cautious"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "playful-1",
+  "category": "playful",
+  "prompt": "讲个冷笑话。",
+  "accept": [
+   "playful"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "playful-2",
+  "category": "playful",
+  "prompt": "给我家橘猫起个搞怪的名字。",
+  "accept": [
+   "playful"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "playful-3",
+  "category": "playful",
+  "prompt": "用押韵的方式跟我说早安。",
+  "accept": [
+   "playful"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "encourage-1",
+  "category": "encourage",
+  "prompt": "我三十岁了，想从零开始学吉他，还来得及吗？",
+  "accept": [
+   "encouraging",
+   "curious",
+   "focused"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "encourage-2",
+  "category": "encourage",
+  "prompt": "我想开始健身，但总是三天打鱼两天晒网。",
+  "accept": [
+   "encouraging",
+   "curious",
+   "focused"
+  ],
+  "neutralOK": true
+ },
+ {
+  "id": "encourage-3",
+  "category": "encourage",
+  "prompt": "我想转行做程序员，你怎么看？",
+  "accept": [
+   "encouraging",
+   "curious",
+   "focused"
+  ],
+  "neutralOK": true
+ }
+]

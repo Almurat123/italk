@@ -1,0 +1,63 @@
+{
+  "date" : "2026-10-30T15:04:57Z",
+  "device" : "iligs-iphone.local",
+  "os" : "Version 27.2 (Build 24B119)",
+  "trials" : [
+    {
+      "backlogHandled" : true,
+      "characterErrorRate" : 0.045,
+      "expected" : "今天下午三点帮我提醒一下开会，地点在二楼会议室。",
+      "firstBufferFrames" : 4800,
+      "heard" : "今天下午 3点帮我提醒一下开会地点在二楼会议室",
+      "micToRecognizerReadyMs" : 263.4679583279649,
+      "missingLeading" : 0,
+      "name" : "zh-cold",
+      "requestToFirstBufferMs" : 323.994208330987,
+      "requestToFirstTextMs" : 1393.630916660186,
+      "requestToMicRunningMs" : 234.86275000323076,
+      "warmRecognizer" : false
+    },
+    {
+      "backlogHandled" : true,
+      "characterErrorRate" : 0.045,
+      "expected" : "今天下午三点帮我提醒一下开会，地点在二楼会议室。",
+      "firstBufferFrames" : 4800,
+      "heard" : "今天下午 3点帮我提醒一下开会地点在二楼会议室",
+      "micToRecognizerReadyMs" : 22.863416670588776,
+      "missingLeading" : 0,
+      "name" : "zh-warm",
+      "requestToFirstBufferMs" : 348.70125001179986,
+      "requestToFirstTextMs" : 1413.5086666647112,
+      "requestToMicRunningMs" : 261.2395000032848,
+      "warmRecognizer" : true
+    },
+    {
+      "backlogHandled" : true,
+      "characterErrorRate" : 0,
+      "expected" : "你好，我想问一下明天的天气。",
+      "firstBufferFrames" : 4800,
+      "heard" : "你好 ，我想问一下明天的天气",
+      "micToRecognizerReadyMs" : 73.30304165952839,
+      "missingLeading" : 0,
+      "name" : "zh-short-cold",
+      "requestToFirstBufferMs" : 395.16970833938103,
+      "requestToFirstTextMs" : 1429.9062916688854,
+      "requestToMicRunningMs" : 306.3745416729944,
+      "warmRecognizer" : false
+    },
+    {
+      "backlogHandled" : true,
+      "characterErrorRate" : 0,
+      "expected" : "你好，我想问一下明天的天气。",
+      "firstBufferFrames" : 4800,
+      "heard" : "你好 ，我想问一下明天的天气",
+      "micToRecognizerReadyMs" : 84.12975000101142,
+      "missingLeading" : 0,
+      "name" : "zh-short-warm",
+      "requestToFirstBufferMs" : 351.95275000296533,
+      "requestToFirstTextMs" : 1387.834416658734,
+      "requestToMicRunningMs" : 263.25679165893234,
+      "warmRecognizer" : true
+    }
+  ]
+}

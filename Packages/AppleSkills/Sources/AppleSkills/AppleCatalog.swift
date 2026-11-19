@@ -1,0 +1,163 @@
+import Foundation
+import AgentRuntime
+
+/// The Apple capability catalog: every advertised tool has a real executor in this package.
+public enum AppleSkills {
+    public static func skills() -> [Skill] {[
+        Skill(id: "calendar", name: "日历", summary: "查询、创建、删除日程",
+              instructions: "查询用 calendar_list_events（给出明确时间范围）。创建前确认标题和具体时间；相对时间（明天下午三点）先换算成 ISO-8601（参考系统提示中的当前时间）。创建和删除都会请用户确认。",
+              toolNames: ["calendar_list_events", "calendar_create_event", "calendar_delete_event"],
+              limitations: "订阅日历和他人共享的只读日历不能修改。"),
+        Skill(id: "reminders", name: "提醒事项", summary: "查询、创建、完成提醒",
+              instructions: "创建用 create_reminder（due 为 ISO-8601，可省略）；时间不明确先问。查询用 reminders_list；完成用 reminders_complete。",
+              toolNames: ["reminders_list", "create_reminder", "reminders_complete"]),
+        // CONTEXT MEMORY
+        // Updated: 2026-10-28
+        // Status: verified
+        // Why: A local model repeatedly sent a seconds-long timer to alarm_set despite its error message.
+        // Debug Goal: Teach duration versus clock time before any system action.
+        // Search Tags: timer_start alarm_set seconds duration tool examples
+        // Invariants:
+        // - Durations use seconds; clock alarms use a time of day or dated time.
+        // - No tool instruction asserts success without a successful result.
+        // Failure Modes:
+        // - Treating 00:00:15 as an alarm time causes retries and no timer.
+        Skill(id: "alarms", name: "闹钟与计时", summary: "设置系统级闹钟、倒计时，管理 iTalk 的闹钟",
+              instructions: "先判断是时长还是时刻：'15秒后响'、'计时15秒'是时长，调用 timer_start，参数 {\"seconds\":15}；'5分钟后响'调用 timer_start，参数 {\"seconds\":300}。'明早7点闹钟'是具体时刻，调用 alarm_set，参数 {\"time\":\"07:00\"}。不要把时长写进 alarm_set 的 time，也不要把 15 秒写成 00:00:15。加载技能后直接调用对应工具；失败时按照错误提示改用正确工具，只有成功结果才能说已设置。闹钟在静音和专注模式下也会响。成功后说明这是 iTalk 创建的系统提醒，不会出现在 Apple 时钟 App 的闹钟列表；可在 iTalk 设置中的“闹钟与计时”查看或取消。",
+              toolNames: ["alarm_set", "timer_start", "alarm_list", "alarm_cancel"],
+              limitations: "只能管理 iTalk 创建的闹钟和计时；它们不会出现在 Apple 时钟 App 的列表中。系统“时钟”App 里已有的闹钟对第三方不可见、不可修改。"),
+        Skill(id: "notifications", name: "通知", summary: "在本机定时弹出提醒通知给用户自己（不会发给别人，不是发短信）、查看与取消",
+              instructions: "简单的“到时候提醒我一下”可用 notification_schedule；需要出现在提醒事项列表时用 create_reminder。",
+              toolNames: ["notification_schedule", "notification_list", "notification_cancel"]),
+        Skill(id: "health", name: "健康", summary: "读取步数、距离、能量、心率、HRV、血氧、体重、睡眠、体能训练",
+              instructions: "用 health_query / health_sleep / health_workouts。没有数据不等于数值为零：说明可能未记录、未同步或未授权。不做医学诊断；异常数值建议咨询医生。",
+              toolNames: ["health_query", "health_sleep", "health_workouts"],
+              limitations: "健康 App 不告诉第三方是否已授权读取；iTalk 不写入健康数据。"),
+        Skill(id: "watch", name: "Apple Watch", summary: "手表配对状态；手表数据经健康读取，提醒经通知同步到手表",
+              instructions: "手表上的心率、睡眠、运动数据用 health_* 工具读取。iPhone 锁定时，notification_schedule 的通知会显示在手表上。",
+              toolNames: ["watch_status"],
+              limitations: "第三方不能控制手表表盘、设置或其他手表 App。"),
+        Skill(id: "location", name: "位置", summary: "获取当前位置与地址",
+              instructions: "只在需要时获取位置；默认约百米精度，确有必要才用 precise。不要把坐标写进网络搜索词。",
+              toolNames: ["location_current"]),
+        Skill(id: "maps", name: "地图", summary: "搜索地点与商户、估算路线时间、在 Apple 地图/高德/百度中打开导航",
+              instructions: "找附近的店用 maps_search；问多久到用 maps_route；要导航时用 maps_open（用户常用高德时 app=amap）。",
+              toolNames: ["maps_search", "maps_route", "maps_open"],
+              limitations: "实时路况细节、公交换乘方案需在地图 App 中查看。"),
+        Skill(id: "weather", name: "天气", summary: "当前天气、逐日预报、空气质量",
+              instructions: "用 weather_forecast；不给地点时用当前位置。说明数据来源 Open-Meteo。",
+              toolNames: ["weather_forecast"],
+              limitations: "预警信息以当地气象部门发布为准。"),
+        Skill(id: "contacts", name: "通讯录", summary: "查找联系人电话与邮箱、新建联系人",
+              instructions: "只取需要的字段；发消息或打电话前先用 contacts_search 找到号码。新建需用户确认。",
+              toolNames: ["contacts_search", "contacts_create"]),
+        Skill(id: "communication", name: "通信", summary: "给别人发短信/邮件（填好内容由用户点发送）、拨打电话或 FaceTime",
+              instructions: "message_compose 和 mail_compose 只打开编辑界面，由用户亲自点发送；phone_call 需要确认。写消息内容时使用用户的原意，不要擅自添加内容。",
+              toolNames: ["message_compose", "mail_compose", "phone_call"],
+              limitations: "Apple 不允许第三方 App 自动发送短信/iMessage、读取短信或通话记录；微信消息只能通过打开微信由用户操作（app_open）。"),
+        Skill(id: "photos", name: "照片", summary: "按时间/类型查找照片视频、识别照片内容、把文件存入相册",
+              instructions: "先 photos_search 找到 id，再用 vision_analyze_image（source: photo:<id>）看内容。",
+              toolNames: ["photos_search", "photos_save", "vision_analyze_image"],
+              limitations: "相册的人物/地点智能分类和回忆不对第三方开放；按内容搜索需要逐张设备端识别。"),
+        Skill(id: "camera", name: "相机", summary: "让用户拍照并在设备上识别（文字、物体、二维码）",
+              instructions: "camera_take_photo 打开相机，用户拍完自动识别。",
+              toolNames: ["camera_take_photo"]),
+        Skill(id: "vision", name: "图像识别", summary: "设备端识别图片中的文字、物体场景、二维码条码、人脸数量",
+              instructions: "对话里的图片用 source: attachment:<id>；相册照片用 photo:<id>；iTalk 文件用 file:<路径>。全部在设备上完成。",
+              toolNames: ["vision_analyze_image"]),
+        Skill(id: "files", name: "文件", summary: "列出、读取、写入、导入、分享、删除 iTalk 文件夹中的文件",
+              instructions: "iTalk 文件夹在“文件”App › 我的 iPhone › iTalk。其他位置的文件请用户用 files_import 选择。写入和删除需确认，删除可恢复。",
+              toolNames: ["files_list", "files_read", "files_write", "files_import", "files_share", "files_delete"],
+              limitations: "iOS 沙盒不允许读取其他 App 的文件，除非用户在文件选择器中选中。"),
+        Skill(id: "pdf", name: "PDF 与文档", summary: "读取、搜索 PDF，把文字生成 PDF",
+              instructions: "大文件按页读取（pdf_read 的 fromPage/toPage）；找内容用 pdf_search；生成用 pdf_create，再用 files_share 分享。",
+              toolNames: ["pdf_read", "pdf_search", "pdf_create", "files_share"]),
+        Skill(id: "audio", name: "音频", summary: "设备端把录音文件转成文字",
+              instructions: "audio_transcribe 支持 iTalk 文件夹中的 m4a/mp3/wav；语音备忘录需用户先通过分享或 files_import 导入。",
+              toolNames: ["audio_transcribe", "files_import"],
+              limitations: "“语音备忘录”App 的录音不对第三方直接开放。"),
+        Skill(id: "music", name: "音乐与媒体", summary: "播放资料库中的歌曲/歌手/专辑/播放列表、控制播放、查看正在播放",
+              instructions: "music_play 播放资料库内容；Apple Music 曲库中未加入资料库的歌曲用 app_open(app: music, action: search)。QQ 音乐/网易云只能打开 App。",
+              toolNames: ["music_play", "music_control", "music_now_playing"],
+              limitations: "其他音乐 App 的播放控制和歌单不对第三方开放；系统音量不能由 App 直接设置。"),
+        Skill(id: "home", name: "家庭", summary: "查看并控制 HomeKit 灯、开关、插座、空调、门锁、车库门和场景",
+              instructions: "先 home_list 获得设备 id。普通设备用 home_control；门锁、车库门、安防用 home_control_secure（需确认）；场景用 home_run_scene（需确认）。",
+              toolNames: ["home_list", "home_control", "home_control_secure", "home_run_scene"],
+              limitations: "只支持接入 Apple“家庭”的设备；米家等未接入 HomeKit 的设备需在其 App 中操作。"),
+        Skill(id: "device", name: "设备与传感器", summary: "电量、存储、温度状态、步数与运动状态、屏幕亮度、手电筒、网络状态",
+              instructions: "按需调用：device_status、motion_activity、screen_brightness、flashlight、network_status。",
+              toolNames: ["device_status", "motion_activity", "screen_brightness", "flashlight", "network_status"],
+              limitations: "Wi-Fi/蓝牙/蜂窝/飞行模式开关、音量、勿扰与专注模式、屏幕使用时间不对第三方开放（可通过用户自建快捷指令实现）。"),
+        Skill(id: "bluetooth", name: "蓝牙", summary: "扫描附近的低功耗蓝牙设备",
+              instructions: "bluetooth_scan 列出正在广播的 BLE 设备名称与信号强度。",
+              toolNames: ["bluetooth_scan"],
+              limitations: "不能连接或管理系统已配对的经典蓝牙设备（耳机、音箱、车机）。"),
+        Skill(id: "nfc", name: "NFC", summary: "读取 NFC 标签中的网址或文字",
+              instructions: "nfc_read_tag 会弹出系统扫描界面。",
+              toolNames: ["nfc_read_tag"],
+              limitations: "交通卡、银行卡、门禁卡等加密卡片不能读取；Apple Pay 不对第三方开放。"),
+        Skill(id: "clipboard", name: "剪贴板", summary: "读取或写入剪贴板文字",
+              instructions: "读取时系统会询问用户是否允许粘贴。",
+              toolNames: ["clipboard_read", "clipboard_write"]),
+        Skill(id: "apps", name: "其他 App 与链接", summary: "打开微信、支付宝、高德、淘宝、美团、滴滴、B 站等 App（含扫一扫、搜索入口），打开网址",
+              instructions: "app_open 打开 App 或其公开的搜索/扫一扫入口；open_link 打开网址（需确认）。不能在其他 App 内代替用户操作。",
+              toolNames: ["app_open", "open_link"],
+              limitations: "其他 App 的数据和内部操作（发微信、付款、下单）不对第三方开放，只能打开 App 由用户完成。"),
+        Skill(id: "shortcuts", name: "快捷指令", summary: "运行用户在“快捷指令”App 中的指令（可扩展到系统设置等任意自动化）",
+              instructions: "shortcut_run 需要指令名称与“快捷指令”App 中完全一致；名称不确定时先问用户。",
+              toolNames: ["shortcut_run"],
+              limitations: "Apple 不允许第三方列出用户的快捷指令，也拿不到运行结果。"),
+        Skill(id: "translation", name: "翻译", summary: "Apple 设备端离线翻译",
+              instructions: "translate_text；如提示未下载语言，告诉用户去 设置 › App › 翻译 下载。",
+              toolNames: ["translate_text"]),
+        Skill(id: "language", name: "文本分析", summary: "识别语言、分词、情感、人名地名机构名",
+              instructions: "text_analyze 在设备上运行。",
+              toolNames: ["text_analyze"]),
+        Skill(id: "conversations", name: "对话记录", summary: "搜索以前在 iTalk 中的对话",
+              instructions: "conversations_search 按关键词查找。",
+              toolNames: ["conversations_search"],
+              limitations: "系统“聚焦”中其他 App 的内容不对第三方开放。"),
+        Skill(id: "widgets", name: "小组件", summary: "刷新 iTalk 小组件与控制中心控件",
+              instructions: "数据变化后可调用 widgets_refresh。", toolNames: ["widgets_refresh"]),
+    ]}
+
+    /// Registers every Apple tool into `registry` and every Apple skill into `catalog`.
+    public static func install(into registry: inout ToolRegistry, catalog: inout SkillCatalog, context ctx: AppleSkillContext) {
+        let tools: [any AgentTool] = [
+            CalendarSkills.listEvents, CalendarSkills.createEvent, CalendarSkills.deleteEvent,
+            CalendarSkills.listReminders, CalendarSkills.completeReminder, CreateReminderTool(store: EventKitReminderStore()),
+            AlarmSkills.setAlarm, AlarmSkills.startTimer, AlarmSkills.listAlarms, AlarmSkills.cancelAlarm,
+            AlarmSkills.scheduleNotification, AlarmSkills.listNotifications, AlarmSkills.cancelNotification,
+            HealthSkills.query, HealthSkills.sleep, HealthSkills.workouts,
+            PlaceSkills.currentLocation, PlaceSkills.search, PlaceSkills.route, PlaceSkills.openMaps(ctx), PlaceSkills.weather,
+            PeopleSkills.search, PeopleSkills.create, PeopleSkills.message(ctx), PeopleSkills.mail(ctx), PeopleSkills.call(ctx),
+            PhotoSkills.search, PhotoSkills.saveToLibrary(ctx), PhotoSkills.vision(ctx), PhotoSkills.camera(ctx),
+            FileSkills.list(ctx), FileSkills.readText(ctx), FileSkills.write(ctx), FileSkills.importFile(ctx), FileSkills.share(ctx), FileSkills.delete(ctx),
+            PDFSkills.extract(ctx), PDFSkills.search(ctx), PDFSkills.create(ctx), AudioSkills.transcribe(ctx),
+            MusicSkills.play, MusicSkills.control, MusicSkills.nowPlaying,
+            HomeSkills.list, HomeSkills.control, HomeSkills.controlSecure, HomeSkills.scene,
+            DeviceSkills.info, DeviceSkills.steps, DeviceSkills.brightness(ctx), DeviceSkills.flashlight, DeviceSkills.network,
+            DeviceSkills.bluetoothScan, DeviceSkills.nfcRead, DeviceSkills.clipboardRead, DeviceSkills.clipboardWrite,
+            AppLinks.open(ctx), AppLinks.openURL(ctx), AppLinks.shortcut(ctx),
+            LanguageSkills.translate, LanguageSkills.analyze,
+            MiscSkills.conversations(ctx), MiscSkills.widgets, MiscSkills.watch,
+        ]
+        for t in tools { registry.register(t) }
+        catalog.add(skills())
+    }
+
+    /// Capabilities Apple does not expose to third-party apps (documented to people and models; never faked).
+    public static let unsupported: [String] = [
+        "自动发送短信/iMessage、读取短信、通话记录、语音信箱",
+        "读取或发送微信/QQ 等第三方 App 的消息，代替用户在其他 App 内付款或下单",
+        "修改系统“时钟”App 中已有的闹钟",
+        "开关 Wi-Fi、蓝牙、蜂窝数据、飞行模式、个人热点，调节系统音量，设置勿扰/专注模式（可通过用户自建快捷指令）",
+        "列出用户的快捷指令或获取其运行结果",
+        "读取其他 App 的通知、屏幕使用时间、其他 App 的使用情况",
+        "读取交通卡/银行卡/门禁卡，使用 Apple Pay 付款",
+        "系统“聚焦”中其他 App 的内容",
+        "控制 Apple Watch 表盘或其他手表 App",
+        "连接/管理系统已配对的经典蓝牙设备",
+        "在后台持续监听麦克风（App 退到后台后由系统决定可运行时间）",
+    ]
+}

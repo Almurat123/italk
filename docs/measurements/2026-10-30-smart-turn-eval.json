@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-30",
+  "model": "pipecat-ai/smart-turn-v3 smart-turn-v3.2-cpu.onnx (8.7 MB, BSD-2-Clause), onnxruntime 1.31 CPU",
+  "data": "120 synthetic utterances: macOS TTS voices (zh-CN, en-US), 60 finished sentences and 60 sentences cut where a speaker would continue, 0.4 s trailing silence; NOT real human speech",
+  "smartTurn": {
+    "auc_all": 0.675,
+    "auc_zh": 0.572,
+    "auc_en": 0.778,
+    "accuracy_at_0.5": 0.56,
+    "meanProbability": {
+      "finished": 0.89,
+      "unfinished": 0.75
+    }
+  },
+  "textHeuristic": {
+    "accuracy_all": 0.87,
+    "accuracy_zh": 0.8,
+    "accuracy_en": 0.93,
+    "caveat": "the unfinished prefixes were written by the same author as the heuristic and end in connectors it knows (然后, 但是, to, and…): optimistic"
+  },
+  "conclusion": "Inconclusive and not enough to integrate: on synthetic speech the audio model separates finished from unfinished only weakly (zh barely better than chance). Decide with real recordings from the target users; keep the text endpointer until then."
+}
